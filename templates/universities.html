@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Target Universities - APPLYRA</title>
+    <link rel="stylesheet" href="../static/css/main.css" />
+    <style>
+        .universities-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+        
+        .university-card {
+            background-color: var(--background-white);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            box-shadow: var(--box-shadow);
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .university-header {
+            display: flex;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .university-logo {
+            flex-shrink: 0;
+        }
+        
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--border-radius);
+            background-color: var(--secondary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+        
+        .university-info {
+            flex: 1;
+        }
+        
+        .university-name {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .university-meta {
+            display: flex;
+            gap: var(--spacing-sm);
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .university-ranking {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+        
+        .university-status {
+            text-align: right;
+        }
+        
+        .university-deadline {
+            background-color: var(--background-gray);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .deadline-info {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+        
+        .deadline-label {
+            font-weight: 500;
+        }
+        
+        .deadline-date {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .university-requirements {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .requirement-section {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .requirement-section h4 {
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+        
+        .requirement-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+        
+        .requirement-item {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background-color: var(--background-gray);
+            border-radius: var(--border-radius);
+            font-size: var(--font-size-sm);
+        }
+        
+        .requirement-item.completed {
+            background-color: #d1fae5;
+            color: var(--success);
+        }
+        
+        .requirement-item.in-progress {
+            background-color: #fef3c7;
+            color: var(--warning);
+        }
+        
+        .requirement-item.pending {
+            background-color: var(--background-gray);
+            color: var(--text-secondary);
+        }
+        
+        .university-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .deadline-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        .deadline-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+            padding: var(--spacing-md);
+            background-color: var(--background-gray);
+            border-radius: var(--border-radius);
+        }
+        
+        .deadline-item.urgent {
+            border-left: 4px solid var(--error);
+            background-color: #fee2e2;
+        }
+        
+        .deadline-date-box {
+            background-color: var(--background-white);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            text-align: center;
+            min-width: 60px;
+        }
+        
+        .deadline-day {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+        
+        .deadline-month {
+            font-size: var(--font-size-xs);
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+        
+        .deadline-details {
+            flex: 1;
+        }
+        
+        .deadline-university {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .deadline-type {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <h1>APPLYRA</h1>
+        </div>
+        <nav class="header-nav">
+          <a href="profile.html" class="header-link">
+            <span class="icon">👤</span>
+            <span class="text">Username</span>
+          </a>
+          <a href="login.html" class="header-link"><span class="text">Logout</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <a href="student_dashboard.html" class="nav-item active">
+          <span class="icon">📊</span>
+          <span class="text">Dashboard</span>
+        </a>
+        <a href="progress.html" class="nav-item">
+          <span class="icon">📈</span>
+          <span class="text">Progress</span>
+        </a>
+        <a href="universities.html" class="nav-item">
+          <span class="icon">🏫</span>
+          <span class="text">Universities</span>
+        </a>
+        <a href="gamification.html" class="nav-item">
+          <span class="icon">🎮</span>
+          <span class="text">Gamification</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+          <span class="icon">⚙️</span>
+          <span class="text">Profile</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+<div class="dashboard-header">
+    <div class="flex-between">
+        <div>
+            <h1>Target Universities</h1>
+            <p class="dashboard-subtitle">Manage your university applications and deadlines</p>
+        </div>
+        <button class="btn btn-primary">+ Add University</button>
+    </div>
+</div>
+
+<!-- Quick Stats -->
+<div class="grid grid-4">
+    <div class="stat-card">
+        <div class="stat-value">8</div>
+        <div class="stat-label">Total Universities</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value">5</div>
+        <div class="stat-label">Applications In Progress</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value">2</div>
+        <div class="stat-label">Applications Submitted</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value">12</div>
+        <div class="stat-label">Days to Nearest Deadline</div>
+    </div>
+</div>
+
+<!-- Filter and Search -->
+<div class="card">
+    <div class="flex-between" style="margin-bottom: var(--spacing-lg);">
+        <div style="flex: 1; max-width: 400px;">
+            <input type="text" class="form-control" placeholder="Search universities...">
+        </div>
+        <select class="form-control" style="width: auto;">
+            <option>All Statuses</option>
+            <option>Not Started</option>
+            <option>In Progress</option>
+            <option>Submitted</option>
+        </select>
+        <select class="form-control" style="width: auto;">
+            <option>All Countries</option>
+            <option>USA</option>
+            <option>UK</option>
+            <option>Canada</option>
+        </select>
+    </div>
+</div>
+
+<!-- Universities List -->
+<div class="universities-list">
+    <!-- University Card 1 -->
+    <div class="university-card">
+        <div class="university-header">
+            <div class="university-logo">
+                <div class="logo-placeholder">🏛️</div>
+            </div>
+            <div class="university-info">
+                <h2 class="university-name">Massachusetts Institute of Technology (MIT)</h2>
+                <div class="university-meta">
+                    <span class="badge badge-info">USA</span>
+                    <span class="badge badge-primary">Engineering</span>
+                    <span class="university-ranking">QS Rank: #1</span>
+                </div>
+            </div>
+            <div class="university-status">
+                <span class="badge badge-warning">In Progress</span>
+                <div class="progress" style="width: 150px; margin-top: var(--spacing-sm);">
+                    <div class="progress-bar progress-bar-warning" style="width: 65%;"></div>
+                </div>
+                <div style="font-size: var(--font-size-xs); color: var(--text-secondary); margin-top: var(--spacing-xs);">
+                    65% Complete
+                </div>
+            </div>
+        </div>
+        
+        <div class="university-deadline">
+            <div class="deadline-info">
+                <span class="deadline-label">Application Deadline:</span>
+                <span class="deadline-date">January 15, 2024</span>
+                <span class="deadline-countdown badge badge-danger">12 days left</span>
+            </div>
+        </div>
+        
+        <div class="university-requirements">
+            <div class="requirement-section">
+                <h4>Required Documents</h4>
+                <div class="requirement-list">
+                    <span class="requirement-item completed">✓ Transcript</span>
+                    <span class="requirement-item completed">✓ SAT Score</span>
+                    <span class="requirement-item completed">✓ IELTS Score</span>
+                    <span class="requirement-item pending">⏳ Recommendation (2/3)</span>
+                    <span class="requirement-item pending">⏳ Personal Statement</span>
+                </div>
+            </div>
+            <div class="requirement-section">
+                <h4>Required Essays</h4>
+                <div class="requirement-list">
+                    <span class="requirement-item completed">✓ Why MIT?</span>
+                    <span class="requirement-item pending">⏳ Research Experience</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="university-actions">
+            <a href="#" class="btn btn-primary">View Details</a>
+            <a href="#" class="btn btn-secondary">Edit Application</a>
+        </div>
+    </div>
+    
+    <!-- University Card 2 -->
+    <div class="university-card">
+        <div class="university-header">
+            <div class="university-logo">
+                <div class="logo-placeholder">🌲</div>
+            </div>
+            <div class="university-info">
+                <h2 class="university-name">Stanford University</h2>
+                <div class="university-meta">
+                    <span class="badge badge-info">USA</span>
+                    <span class="badge badge-primary">Technology</span>
+                    <span class="university-ranking">QS Rank: #2</span>
+                </div>
+            </div>
+            <div class="university-status">
+                <span class="badge badge-warning">In Progress</span>
+                <div class="progress" style="width: 150px; margin-top: var(--spacing-sm);">
+                    <div class="progress-bar progress-bar-warning" style="width: 55%;"></div>
+                </div>
+                <div style="font-size: var(--font-size-xs); color: var(--text-secondary); margin-top: var(--spacing-xs);">
+                    55% Complete
+                </div>
+            </div>
+        </div>
+        
+        <div class="university-deadline">
+            <div class="deadline-info">
+                <span class="deadline-label">Application Deadline:</span>
+                <span class="deadline-date">January 20, 2024</span>
+                <span class="deadline-countdown badge badge-warning">17 days left</span>
+            </div>
+        </div>
+        
+        <div class="university-requirements">
+            <div class="requirement-section">
+                <h4>Required Documents</h4>
+                <div class="requirement-list">
+                    <span class="requirement-item completed">✓ Transcript</span>
+                    <span class="requirement-item completed">✓ SAT Score</span>
+                    <span class="requirement-item pending">⏳ Recommendation (1/3)</span>
+                    <span class="requirement-item pending">⏳ Personal Statement</span>
+                </div>
+            </div>
+            <div class="requirement-section">
+                <h4>Required Essays</h4>
+                <div class="requirement-list">
+                    <span class="requirement-item in-progress">📝 Why Stanford? (Draft)</span>
+                    <span class="requirement-item pending">⏳ Leadership Essay</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="university-actions">
+            <a href="#" class="btn btn-primary">View Details</a>
+            <a href="#" class="btn btn-secondary">Edit Application</a>
+        </div>
+    </div>
+    
+    <!-- University Card 3 -->
+    <div class="university-card">
+        <div class="university-header">
+            <div class="university-logo">
+                <div class="logo-placeholder">🔴</div>
+            </div>
+            <div class="university-info">
+                <h2 class="university-name">Harvard University</h2>
+                <div class="university-meta">
+                    <span class="badge badge-info">USA</span>
+                    <span class="badge badge-primary">Liberal Arts</span>
+                    <span class="university-ranking">QS Rank: #3</span>
+                </div>
+            </div>
+            <div class="university-status">
+                <span class="badge badge-info">Not Started</span>
+                <div class="progress" style="width: 150px; margin-top: var(--spacing-sm);">
+                    <div class="progress-bar" style="width: 25%;"></div>
+                </div>
+                <div style="font-size: var(--font-size-xs); color: var(--text-secondary); margin-top: var(--spacing-xs);">
+                    25% Complete
+                </div>
+            </div>
+        </div>
+        
+        <div class="university-deadline">
+            <div class="deadline-info">
+                <span class="deadline-label">Application Deadline:</span>
+                <span class="deadline-date">January 25, 2024</span>
+                <span class="deadline-countdown badge badge-info">22 days left</span>
+            </div>
+        </div>
+        
+        <div class="university-requirements">
+            <div class="requirement-section">
+                <h4>Required Documents</h4>
+                <div class="requirement-list">
+                    <span class="requirement-item completed">✓ Transcript</span>
+                    <span class="requirement-item completed">✓ SAT Score</span>
+                    <span class="requirement-item pending">⏳ Recommendation (0/3)</span>
+                    <span class="requirement-item pending">⏳ Personal Statement</span>
+                </div>
+            </div>
+            <div class="requirement-section">
+                <h4>Required Essays</h4>
+                <div class="requirement-list">
+                    <span class="requirement-item pending">⏳ Personal Statement</span>
+                    <span class="requirement-item pending">⏳ Leadership Experience</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="university-actions">
+            <a href="#" class="btn btn-primary">Start Application</a>
+            <a href="#" class="btn btn-secondary">View Requirements</a>
+        </div>
+    </div>
+    
+    <!-- University Card 4 -->
+    <div class="university-card">
+        <div class="university-header">
+            <div class="university-logo">
+                <div class="logo-placeholder">🏛️</div>
+            </div>
+            <div class="university-info">
+                <h2 class="university-name">UC Berkeley</h2>
+                <div class="university-meta">
+                    <span class="badge badge-info">USA</span>
+                    <span class="badge badge-primary">Engineering</span>
+                    <span class="university-ranking">QS Rank: #27</span>
+                </div>
+            </div>
+            <div class="university-status">
+                <span class="badge badge-success">Submitted</span>
+                <div class="progress" style="width: 150px; margin-top: var(--spacing-sm);">
+                    <div class="progress-bar progress-bar-success" style="width: 100%;"></div>
+                </div>
+                <div style="font-size: var(--font-size-xs); color: var(--text-secondary); margin-top: var(--spacing-xs);">
+                    Submitted: Nov 1, 2024
+                </div>
+            </div>
+        </div>
+        
+        <div class="university-deadline">
+            <div class="deadline-info">
+                <span class="deadline-label">Application Deadline:</span>
+                <span class="deadline-date">November 30, 2024</span>
+                <span class="deadline-countdown badge badge-success">Submitted Early</span>
+            </div>
+        </div>
+        
+        <div class="university-requirements">
+            <div class="requirement-section">
+                <h4>Status</h4>
+                <p style="color: var(--text-secondary);">All requirements have been submitted. Waiting for university response.</p>
+            </div>
+        </div>
+        
+        <div class="university-actions">
+            <a href="#" class="btn btn-secondary">View Application</a>
+            <a href="#" class="btn btn-secondary">Track Status</a>
+        </div>
+    </div>
+</div>
+
+<!-- Deadline Calendar View -->
+<div class="card">
+    <div class="card-header">
+        <div>
+            <h2 class="card-title">Deadline Calendar</h2>
+            <p class="card-subtitle">Upcoming deadlines at a glance</p>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="deadline-timeline">
+            <div class="deadline-item urgent">
+                <div class="deadline-date-box">
+                    <div class="deadline-day">15</div>
+                    <div class="deadline-month">Jan</div>
+                </div>
+                <div class="deadline-details">
+                    <div class="deadline-university">MIT - Early Action</div>
+                    <div class="deadline-type">Application Deadline</div>
+                </div>
+                <div class="deadline-status">
+                    <span class="badge badge-danger">12 days left</span>
+                </div>
+            </div>
+            
+            <div class="deadline-item">
+                <div class="deadline-date-box">
+                    <div class="deadline-day">20</div>
+                    <div class="deadline-month">Jan</div>
+                </div>
+                <div class="deadline-details">
+                    <div class="deadline-university">Stanford University</div>
+                    <div class="deadline-type">Application Deadline</div>
+                </div>
+                <div class="deadline-status">
+                    <span class="badge badge-warning">17 days left</span>
+                </div>
+            </div>
+            
+            <div class="deadline-item">
+                <div class="deadline-date-box">
+                    <div class="deadline-day">25</div>
+                    <div class="deadline-month">Jan</div>
+                </div>
+                <div class="deadline-details">
+                    <div class="deadline-university">Harvard University</div>
+                    <div class="deadline-type">Application Deadline</div>
+                </div>
+                <div class="deadline-status">
+                    <span class="badge badge-info">22 days left</span>
+                </div>
+            </div>
+            
+            <div class="deadline-item">
+                <div class="deadline-date-box">
+                    <div class="deadline-day">30</div>
+                    <div class="deadline-month">Nov</div>
+                </div>
+                <div class="deadline-details">
+                    <div class="deadline-university">UC Berkeley</div>
+                    <div class="deadline-type">Application Deadline</div>
+                </div>
+                <div class="deadline-status">
+                    <span class="badge badge-success">Completed</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2024 APPLYRA. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="../static/js/main.js"></script>
+
+  </body>
+</html>

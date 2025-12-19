@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mentor Dashboard - APPLYRA</title>
+    <link rel="stylesheet" href="../static/css/main.css" />
+    <style>
+        .stat-change.negative {
+            color: var(--error);
+        }
+        
+        .risk-card {
+            background-color: var(--background-gray);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            border: 2px solid var(--border-color);
+        }
+        
+        .risk-card.risk-high {
+            border-color: var(--error);
+            background-color: #fee2e2;
+        }
+        
+        .risk-card.risk-medium {
+            border-color: var(--warning);
+            background-color: #fef3c7;
+        }
+        
+        .risk-card.risk-low {
+            border-color: var(--success);
+            background-color: #d1fae5;
+        }
+        
+        .risk-icon {
+            font-size: 48px;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .risk-count {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .risk-label {
+            font-weight: 600;
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .risk-description {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <h1>APPLYRA</h1>
+        </div>
+        <nav class="header-nav">
+          <a href="profile.html" class="header-link">
+            <span class="icon">👤</span>
+            <span class="text">Username</span>
+          </a>
+          <a href="login.html" class="header-link"><span class="text">Logout</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <a href="student_dashboard.html" class="nav-item active">
+          <span class="icon">📊</span>
+          <span class="text">Dashboard</span>
+        </a>
+        <a href="progress.html" class="nav-item">
+          <span class="icon">📈</span>
+          <span class="text">Progress</span>
+        </a>
+        <a href="universities.html" class="nav-item">
+          <span class="icon">🏫</span>
+          <span class="text">Universities</span>
+        </a>
+        <a href="gamification.html" class="nav-item">
+          <span class="icon">🎮</span>
+          <span class="text">Gamification</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+          <span class="icon">⚙️</span>
+          <span class="text">Profile</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+<div class="dashboard-header">
+    <h1>Mentor Analytics Dashboard</h1>
+    <p class="dashboard-subtitle">Monitor your students' progress and provide guidance</p>
+</div>
+
+<!-- Overview Stats -->
+<div class="grid grid-4">
+    <div class="stat-card">
+        <div class="stat-value">24</div>
+        <div class="stat-label">Total Students</div>
+        <div class="stat-change positive">+3 this month</div>
+    </div>
+    
+    <div class="stat-card">
+        <div class="stat-value">68%</div>
+        <div class="stat-label">Avg. Progress</div>
+        <div class="progress">
+            <div class="progress-bar" style="width: 68%;"></div>
+        </div>
+    </div>
+    
+    <div class="stat-card">
+        <div class="stat-value">5</div>
+        <div class="stat-label">At Risk</div>
+        <div class="stat-change negative">Needs attention</div>
+    </div>
+    
+    <div class="stat-card">
+        <div class="stat-value">18</div>
+        <div class="stat-label">On Track</div>
+        <div class="stat-change positive">Good progress</div>
+    </div>
+</div>
+
+<!-- Charts Row -->
+<div class="grid grid-2">
+    <!-- Progress Distribution Chart -->
+    <div class="card">
+        <div class="card-header">
+            <div>
+                <h2 class="card-title">Progress Distribution</h2>
+                <p class="card-subtitle">Student progress overview</p>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="chart-container">
+                <!-- Chart.js will be integrated here -->
+                <div>Progress Distribution Chart (Chart.js placeholder)</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Application Status Chart -->
+    <div class="card">
+        <div class="card-header">
+            <div>
+                <h2 class="card-title">Application Status</h2>
+                <p class="card-subtitle">Current application statuses</p>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="chart-container">
+                <!-- Chart.js will be integrated here -->
+                <div>Application Status Chart (Chart.js placeholder)</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Students List with Risk Indicators -->
+<div class="card">
+    <div class="card-header">
+        <div>
+            <h2 class="card-title">Student Progress Overview</h2>
+            <p class="card-subtitle">Monitor individual student progress</p>
+        </div>
+        <div>
+            <select class="form-control" style="width: auto; display: inline-block;">
+                <option>All Students</option>
+                <option>At Risk</option>
+                <option>On Track</option>
+            </select>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Student</th>
+                    <th>Progress</th>
+                    <th>Deadlines</th>
+                    <th>Documents</th>
+                    <th>Risk Level</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div style="font-weight: 600;">John Doe</div>
+                        <div style="font-size: var(--font-size-xs); color: var(--text-secondary);">
+                            MIT, Stanford, Harvard
+                        </div>
+                    </td>
+                    <td>
+                        <div class="progress" style="width: 150px;">
+                            <div class="progress-bar progress-bar-success" style="width: 85%;"></div>
+                        </div>
+                        <span style="font-size: var(--font-size-sm);">85%</span>
+                    </td>
+                    <td>
+                        <span class="badge badge-warning">2 upcoming</span>
+                    </td>
+                    <td>
+                        <span style="font-size: var(--font-size-sm);">8/10</span>
+                    </td>
+                    <td>
+                        <span class="risk-indicator risk-low">Low Risk</span>
+                    </td>
+                    <td>
+                        <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="font-weight: 600;">Jane Smith</div>
+                        <div style="font-size: var(--font-size-xs); color: var(--text-secondary);">
+                            UC Berkeley, UCLA
+                        </div>
+                    </td>
+                    <td>
+                        <div class="progress" style="width: 150px;">
+                            <div class="progress-bar progress-bar-warning" style="width: 45%;"></div>
+                        </div>
+                        <span style="font-size: var(--font-size-sm);">45%</span>
+                    </td>
+                    <td>
+                        <span class="badge badge-danger">1 overdue</span>
+                    </td>
+                    <td>
+                        <span style="font-size: var(--font-size-sm);">3/10</span>
+                    </td>
+                    <td>
+                        <span class="risk-indicator risk-high">High Risk</span>
+                    </td>
+                    <td>
+                        <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="font-weight: 600;">Mike Johnson</div>
+                        <div style="font-size: var(--font-size-xs); color: var(--text-secondary);">
+                            NYU, Columbia
+                        </div>
+                    </td>
+                    <td>
+                        <div class="progress" style="width: 150px;">
+                            <div class="progress-bar" style="width: 72%;"></div>
+                        </div>
+                        <span style="font-size: var(--font-size-sm);">72%</span>
+                    </td>
+                    <td>
+                        <span class="badge badge-info">4 upcoming</span>
+                    </td>
+                    <td>
+                        <span style="font-size: var(--font-size-sm);">7/10</span>
+                    </td>
+                    <td>
+                        <span class="risk-indicator risk-medium">Medium Risk</span>
+                    </td>
+                    <td>
+                        <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="font-weight: 600;">Sarah Williams</div>
+                        <div style="font-size: var(--font-size-xs); color: var(--text-secondary);">
+                            Yale, Princeton
+                        </div>
+                    </td>
+                    <td>
+                        <div class="progress" style="width: 150px;">
+                            <div class="progress-bar progress-bar-success" style="width: 90%;"></div>
+                        </div>
+                        <span style="font-size: var(--font-size-sm);">90%</span>
+                    </td>
+                    <td>
+                        <span class="badge badge-success">All on track</span>
+                    </td>
+                    <td>
+                        <span style="font-size: var(--font-size-sm);">10/10</span>
+                    </td>
+                    <td>
+                        <span class="risk-indicator risk-low">Low Risk</span>
+                    </td>
+                    <td>
+                        <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Risk Analysis -->
+<div class="card">
+    <div class="card-header">
+        <div>
+            <h2 class="card-title">Risk Analysis</h2>
+            <p class="card-subtitle">Students requiring immediate attention</p>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="grid grid-3">
+            <div class="risk-card risk-high">
+                <div class="risk-icon">⚠️</div>
+                <div class="risk-count">5</div>
+                <div class="risk-label">High Risk</div>
+                <div class="risk-description">Missing critical deadlines or documents</div>
+            </div>
+            <div class="risk-card risk-medium">
+                <div class="risk-icon">⚡</div>
+                <div class="risk-count">8</div>
+                <div class="risk-label">Medium Risk</div>
+                <div class="risk-description">Behind schedule but recoverable</div>
+            </div>
+            <div class="risk-card risk-low">
+                <div class="risk-icon">✓</div>
+                <div class="risk-count">11</div>
+                <div class="risk-label">Low Risk</div>
+                <div class="risk-description">On track with progress</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2024 APPLYRA. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="../static/js/main.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parent Dashboard - APPLYRA</title>
+    <link rel="stylesheet" href="../static/css/main.css" />
+    <style>
+        .progress-section {
+          padding: var(--spacing-md);
+          background-color: var(--background-gray);
+          border-radius: var(--border-radius);
+        }
+        
+        .achievement-list {
+          display: flex;
+          flex-direction: column;
+          gap: var(--spacing-md);
+        }
+        
+        .achievement-item {
+          display: flex;
+          gap: var(--spacing-md);
+          align-items: center;
+          padding: var(--spacing-md);
+          background-color: var(--background-gray);
+          border-radius: var(--border-radius);
+        }
+        
+        .achievement-icon {
+          font-size: 32px;
+          width: 50px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: var(--secondary-blue);
+          border-radius: 50%;
+          flex-shrink: 0;
+        }
+        
+        .achievement-content {
+          flex: 1;
+        }
+        
+        .action-card {
+          background-color: var(--background-gray);
+          padding: var(--spacing-xl);
+          border-radius: var(--border-radius);
+          text-align: center;
+          text-decoration: none;
+          color: var(--text-primary);
+          transition: transform 0.2s, box-shadow 0.2s;
+          border: 2px solid transparent;
+        }
+        
+        .action-card:hover {
+          transform: translateY(-4px);
+          box-shadow: var(--box-shadow-lg);
+          border-color: var(--primary-blue);
+        }
+        
+        .action-icon {
+          font-size: 48px;
+          margin-bottom: var(--spacing-md);
+        }
+        
+        .action-title {
+          font-weight: 600;
+          font-size: var(--font-size-base);
+        }
+      </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <h1>APPLYRA</h1>
+        </div>
+        <nav class="header-nav">
+          <a href="profile.html" class="header-link">
+            <span class="icon">👤</span>
+            <span class="text">Username</span>
+          </a>
+          <a href="login.html" class="header-link"><span class="text">Logout</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <a href="student_dashboard.html" class="nav-item active">
+          <span class="icon">📊</span>
+          <span class="text">Dashboard</span>
+        </a>
+        <a href="progress.html" class="nav-item">
+          <span class="icon">📈</span>
+          <span class="text">Progress</span>
+        </a>
+        <a href="universities.html" class="nav-item">
+          <span class="icon">🏫</span>
+          <span class="text">Universities</span>
+        </a>
+        <a href="gamification.html" class="nav-item">
+          <span class="icon">🎮</span>
+          <span class="text">Gamification</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+          <span class="icon">⚙️</span>
+          <span class="text">Profile</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+  <div class="dashboard-header">
+    <h1>Parent Dashboard</h1>
+    <p class="dashboard-subtitle">Monitor your child's admission progress</p>
+  </div>
+
+  <!-- Overview Cards -->
+  <div class="grid grid-3">
+    <div class="stat-card">
+      <div class="stat-value">72%</div>
+      <div class="stat-label">Overall Progress</div>
+      <div class="progress">
+        <div class="progress-bar" style="width: 72%;"></div>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-value">6</div>
+      <div class="stat-label">Target Universities</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-value">15</div>
+      <div class="stat-label">Days Until Next Deadline</div>
+    </div>
+  </div>
+
+  <!-- Progress Overview -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h2 class="card-title">Admission Progress Summary</h2>
+        <p class="card-subtitle">Current status of key components</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="grid grid-2">
+        <div class="progress-section">
+          <div class="flex-between mb-2">
+            <span style="font-weight: 600;">Examinations</span>
+            <span class="badge badge-success">Completed</span>
+          </div>
+          <div class="progress">
+            <div class="progress-bar progress-bar-success" style="width: 100%;"></div>
+          </div>
+          <p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-top: var(--spacing-sm);">All required exams (SAT, IELTS) have been completed successfully.</p>
+        </div>
+
+        <div class="progress-section">
+          <div class="flex-between mb-2">
+            <span style="font-weight: 600;">Documents</span>
+            <span class="badge badge-warning">In Progress</span>
+          </div>
+          <div class="progress">
+            <div class="progress-bar progress-bar-warning" style="width: 70%;"></div>
+          </div>
+          <p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-top: var(--spacing-sm);">7 of 10 required documents have been uploaded.</p>
+        </div>
+
+        <div class="progress-section">
+          <div class="flex-between mb-2">
+            <span style="font-weight: 600;">Essays</span>
+            <span class="badge badge-warning">In Progress</span>
+          </div>
+          <div class="progress">
+            <div class="progress-bar progress-bar-warning" style="width: 50%;"></div>
+          </div>
+          <p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-top: var(--spacing-sm);">3 of 6 essays have been completed and reviewed.</p>
+        </div>
+
+        <div class="progress-section">
+          <div class="flex-between mb-2">
+            <span style="font-weight: 600;">Recommendations</span>
+            <span class="badge badge-info">Pending</span>
+          </div>
+          <div class="progress">
+            <div class="progress-bar progress-bar-danger" style="width: 50%;"></div>
+          </div>
+          <p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin-top: var(--spacing-sm);">2 of 4 recommendation letters have been received.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upcoming Deadlines -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h2 class="card-title">Upcoming Application Deadlines</h2>
+        <p class="card-subtitle">Important dates to remember</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-item">
+          <div>
+            <div style="font-weight: 600;">MIT - Early Action</div>
+            <div style="font-size: var(--font-size-sm); color: var(--text-secondary);">November 1, 2024</div>
+          </div>
+          <span class="badge badge-warning">15 days left</span>
+        </li>
+        <li class="list-item">
+          <div>
+            <div style="font-weight: 600;">Stanford University</div>
+            <div style="font-size: var(--font-size-sm); color: var(--text-secondary);">November 15, 2024</div>
+          </div>
+          <span class="badge badge-info">29 days left</span>
+        </li>
+        <li class="list-item">
+          <div>
+            <div style="font-weight: 600;">Harvard University</div>
+            <div style="font-size: var(--font-size-sm); color: var(--text-secondary);">January 1, 2025</div>
+          </div>
+          <span class="badge badge-info">76 days left</span>
+        </li>
+        <li class="list-item">
+          <div>
+            <div style="font-weight: 600;">UC Berkeley</div>
+            <div style="font-size: var(--font-size-sm); color: var(--text-secondary);">November 30, 2024</div>
+          </div>
+          <span class="badge badge-info">44 days left</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Recent Achievements -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h2 class="card-title">Recent Achievements</h2>
+        <p class="card-subtitle">Your child's latest accomplishments</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="achievement-list">
+        <div class="achievement-item">
+          <div class="achievement-icon">🎓</div>
+          <div class="achievement-content">
+            <div style="font-weight: 600;">Essay "Leadership Experience" Completed</div>
+            <div style="font-size: var(--font-size-sm); color: var(--text-secondary);">2 days ago</div>
+          </div>
+        </div>
+        <div class="achievement-item">
+          <div class="achievement-icon">📄</div>
+          <div class="achievement-content">
+            <div style="font-weight: 600;">Official Transcript Uploaded</div>
+            <div style="font-size: var(--font-size-sm); color: var(--text-secondary);">5 days ago</div>
+          </div>
+        </div>
+        <div class="achievement-item">
+          <div class="achievement-icon">⭐</div>
+          <div class="achievement-content">
+            <div style="font-weight: 600;">Level Up! Reached Level 4</div>
+            <div style="font-size: var(--font-size-sm); color: var(--text-secondary);">1 week ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h2 class="card-title">Quick Actions</h2>
+        <p class="card-subtitle">Common tasks and information</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="grid grid-3">
+        <a href="progress.html" class="action-card">
+          <div class="action-icon">📊</div>
+          <div class="action-title">View Detailed Progress</div>
+        </a>
+        <a href="universities.html" class="action-card">
+          <div class="action-icon">🏫</div>
+          <div class="action-title">View Universities</div>
+        </a>
+        <a href="#" class="action-card">
+          <div class="action-icon">💬</div>
+          <div class="action-title">Contact Mentor</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2024 APPLYRA. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="../static/js/main.js"></script>
+
+  </body>
+</html>

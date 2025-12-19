@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gamification - APPLYRA</title>
+    <link rel="stylesheet" href="../static/css/main.css" />
+    <style>
+        .character-info {
+            text-align: center;
+        }
+        
+        .level-badge {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+        
+        .level-xp {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+        
+        .xp-bar {
+            max-width: 500px;
+            margin: var(--spacing-md) auto;
+        }
+        
+        .character-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+        
+        .stat-icon {
+            font-size: 32px;
+        }
+        
+        .stat-label-small {
+            font-size: var(--font-size-xs);
+            color: var(--text-secondary);
+        }
+        
+        .stat-value-small {
+            font-weight: 600;
+            font-size: var(--font-size-lg);
+        }
+        
+        .currency-card {
+            background-color: var(--background-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            border: 2px solid var(--border-color);
+        }
+        
+        .currency-icon {
+            font-size: 48px;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .currency-amount {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .currency-label {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+        
+        .quests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .quest-card {
+            background-color: var(--background-gray);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .quest-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .quest-icon {
+            font-size: 32px;
+        }
+        
+        .quest-title {
+            flex: 1;
+            font-weight: 600;
+            font-size: var(--font-size-lg);
+        }
+        
+        .quest-reward {
+            font-size: var(--font-size-xs);
+            color: var(--success);
+            font-weight: 500;
+        }
+        
+        .quest-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .quest-progress-text {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            margin-top: var(--spacing-xs);
+        }
+        
+        .artifact-status {
+            margin-top: var(--spacing-sm);
+            text-align: center;
+        }
+        
+        .customization-section {
+            margin-top: var(--spacing-md);
+        }
+        
+        .avatar-options {
+            display: flex;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+        
+        .avatar-option {
+            background-color: var(--background-gray);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            border: 2px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.2s;
+            min-width: 150px;
+        }
+        
+        .avatar-option:hover:not(.locked) {
+            border-color: var(--primary-blue);
+            transform: translateY(-4px);
+            box-shadow: var(--box-shadow-lg);
+        }
+        
+        .avatar-option.selected {
+            border-color: var(--primary-blue);
+            background-color: var(--secondary-blue);
+        }
+        
+        .avatar-option.locked {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .avatar-preview {
+            font-size: 64px;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .avatar-name {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .avatar-price {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+        
+        .shop-item-name {
+            font-weight: 600;
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .shop-item-description {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            min-height: 40px;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .achievement-badge {
+            background-color: var(--background-gray);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            border: 2px solid var(--border-color);
+            opacity: 0.6;
+        }
+        
+        .achievement-badge.unlocked {
+            opacity: 1;
+            border-color: var(--success);
+            background-color: #f0fdf4;
+        }
+        
+        .achievement-badge-icon {
+            font-size: 48px;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .achievement-badge-name {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .achievement-badge-desc {
+            font-size: var(--font-size-xs);
+            color: var(--text-secondary);
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <h1>APPLYRA</h1>
+        </div>
+        <nav class="header-nav">
+          <a href="profile.html" class="header-link">
+            <span class="icon">👤</span>
+            <span class="text">Username</span>
+          </a>
+          <a href="login.html" class="header-link"><span class="text">Logout</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <a href="student_dashboard.html" class="nav-item active">
+          <span class="icon">📊</span>
+          <span class="text">Dashboard</span>
+        </a>
+        <a href="progress.html" class="nav-item">
+          <span class="icon">📈</span>
+          <span class="text">Progress</span>
+        </a>
+        <a href="universities.html" class="nav-item">
+          <span class="icon">🏫</span>
+          <span class="text">Universities</span>
+        </a>
+        <a href="gamification.html" class="nav-item">
+          <span class="icon">🎮</span>
+          <span class="text">Gamification</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+          <span class="icon">⚙️</span>
+          <span class="text">Profile</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+<div class="dashboard-header">
+    <h1>Gamification Center</h1>
+    <p class="dashboard-subtitle">Level up your admission journey with achievements and rewards</p>
+</div>
+
+<!-- Character Profile -->
+<div class="card">
+    <div class="card-header">
+        <div>
+            <h2 class="card-title">Your Character</h2>
+            <p class="card-subtitle">Your admission journey avatar</p>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="character-container">
+            <div class="character-avatar">
+                🎓
+            </div>
+            <div class="character-info">
+                <div class="level-indicator">
+                    <span class="level-badge">Level 5</span>
+                    <span class="level-xp">1,250 / 1,500 XP</span>
+                </div>
+                <div class="xp-bar">
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 83%;"></div>
+                    </div>
+                </div>
+                <div class="character-stats">
+                    <div class="stat-item">
+                        <div class="stat-icon">🔥</div>
+                        <div>
+                            <div class="stat-label-small">Streak</div>
+                            <div class="stat-value-small">12 days</div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">⭐</div>
+                        <div>
+                            <div class="stat-label-small">Achievements</div>
+                            <div class="stat-value-small">8</div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">🎯</div>
+                        <div>
+                            <div class="stat-label-small">Quests Completed</div>
+                            <div class="stat-value-small">15</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- In-Game Currency -->
+<div class="grid grid-4">
+    <div class="currency-card">
+        <div class="currency-icon">🪙</div>
+        <div class="currency-amount">1,250</div>
+        <div class="currency-label">Tokens</div>
+    </div>
+    <div class="currency-card">
+        <div class="currency-icon">💰</div>
+        <div class="currency-amount">350</div>
+        <div class="currency-label">Coins</div>
+    </div>
+    <div class="currency-card">
+        <div class="currency-icon">❤️</div>
+        <div class="currency-amount">5</div>
+        <div class="currency-label">Lives</div>
+    </div>
+    <div class="currency-card">
+        <div class="currency-icon">🔥</div>
+        <div class="currency-amount">12</div>
+        <div class="currency-label">Day Streak</div>
+    </div>
+</div>
+
+<!-- Active Quests -->
+<div class="card">
+    <div class="card-header">
+        <div>
+            <h2 class="card-title">Active Quests</h2>
+            <p class="card-subtitle">Complete quests to earn XP and rewards</p>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="quests-grid">
+            <div class="quest-card">
+                <div class="quest-header">
+                    <div class="quest-icon">📝</div>
+                    <div class="quest-title">Essay Master</div>
+                    <div class="quest-reward">+100 XP, +50 Tokens</div>
+                </div>
+                <div class="quest-description">
+                    Complete 3 essays this week
+                </div>
+                <div class="quest-progress">
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 67%;"></div>
+                    </div>
+                    <div class="quest-progress-text">2 / 3 essays completed</div>
+                </div>
+            </div>
+            
+            <div class="quest-card">
+                <div class="quest-header">
+                    <div class="quest-icon">📄</div>
+                    <div class="quest-title">Document Collector</div>
+                    <div class="quest-reward">+75 XP, +30 Tokens</div>
+                </div>
+                <div class="quest-description">
+                    Upload 5 documents
+                </div>
+                <div class="quest-progress">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" style="width: 80%;"></div>
+                    </div>
+                    <div class="quest-progress-text">4 / 5 documents uploaded</div>
+                </div>
+            </div>
+            
+            <div class="quest-card">
+                <div class="quest-header">
+                    <div class="quest-icon">🎯</div>
+                    <div class="quest-title">Deadline Warrior</div>
+                    <div class="quest-reward">+150 XP, +75 Tokens</div>
+                </div>
+                <div class="quest-description">
+                    Submit 2 applications before deadline
+                </div>
+                <div class="quest-progress">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-warning" style="width: 50%;"></div>
+                    </div>
+                    <div class="quest-progress-text">1 / 2 applications submitted</div>
+                </div>
+            </div>
+            
+            <div class="quest-card">
+                <div class="quest-header">
+                    <div class="quest-icon">🔥</div>
+                    <div class="quest-title">Streak Master</div>
+                    <div class="quest-reward">+50 XP, +25 Tokens</div>
+                </div>
+                <div class="quest-description">
+                    Maintain a 7-day activity streak
+                </div>
+                <div class="quest-progress">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" style="width: 86%;"></div>
+                    </div>
+                    <div class="quest-progress-text">6 / 7 days completed</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Artifacts -->
+<div class="card">
+    <div class="card-header">
+        <div>
+            <h2 class="card-title">Artifacts Collection</h2>
+            <p class="card-subtitle">Equip artifacts to boost your stats</p>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="artifact-grid">
+            <div class="artifact-card owned">
+                <div class="artifact-icon">⚡</div>
+                <div class="artifact-name">Speed Boost</div>
+                <div class="artifact-stats">+10% XP gain</div>
+                <div class="artifact-status">
+                    <span class="badge badge-success">Equipped</span>
+                </div>
+            </div>
+            
+            <div class="artifact-card owned">
+                <div class="artifact-icon">📚</div>
+                <div class="artifact-name">Scholar's Focus</div>
+                <div class="artifact-stats">+15% essay quality bonus</div>
+                <div class="artifact-status">
+                    <button class="btn btn-primary btn-sm">Equip</button>
+                </div>
+            </div>
+            
+            <div class="artifact-card owned">
+                <div class="artifact-icon">🎯</div>
+                <div class="artifact-name">Deadline Master</div>
+                <div class="artifact-stats">+1 day deadline extension</div>
+                <div class="artifact-status">
+                    <button class="btn btn-primary btn-sm">Equip</button>
+                </div>
+            </div>
+            
+            <div class="artifact-card">
+                <div class="artifact-icon">💎</div>
+                <div class="artifact-name">Premium Writer</div>
+                <div class="artifact-stats">+25% essay quality bonus</div>
+                <div class="artifact-status">
+                    <span class="badge badge-warning">Locked</span>
+                    <div style="font-size: var(--font-size-xs); margin-top: var(--spacing-xs);">
+                        Requires Level 8
+                    </div>
+                </div>
+            </div>
+            
+            <div class="artifact-card">
+                <div class="artifact-icon">🏆</div>
+                <div class="artifact-name">Champion's Crown</div>
+                <div class="artifact-stats">+20% XP gain, +10% quality</div>
+                <div class="artifact-status">
+                    <span class="badge badge-warning">Locked</span>
+                    <div style="font-size: var(--font-size-xs); margin-top: var(--spacing-xs);">
+                        Complete 50 quests
+                    </div>
+                </div>
+            </div>
+            
+            <div class="artifact-card">
+                <div class="artifact-icon">⭐</div>
+                <div class="artifact-name">Star Collector</div>
+                <div class="artifact-stats">+5% bonus to all stats</div>
+                <div class="artifact-status">
+                    <span class="badge badge-warning">Locked</span>
+                    <div style="font-size: var(--font-size-xs); margin-top: var(--spacing-xs);">
+                        Earn 20 achievements
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Character Customization -->
+<div class="card">
+    <div class="card-header">
+        <div>
+            <h2 class="card-title">Character Customization</h2>
+            <p class="card-subtitle">Personalize your avatar</p>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="customization-section">
+            <h3 style="margin-bottom: var(--spacing-lg);">Avatar Options</h3>
+            <div class="avatar-options">
+                <div class="avatar-option selected">
+                    <div class="avatar-preview">🎓</div>
+                    <div class="avatar-name">Scholar</div>
+                    <div class="avatar-price">Free</div>
+                </div>
+                <div class="avatar-option">
+                    <div class="avatar-preview">🚀</div>
+                    <div class="avatar-name">Explorer</div>
+                    <div class="avatar-price">50 Tokens</div>
+                </div>
+                <div class="avatar-option">
+                    <div class="avatar-preview">⚡</div>
+                    <div class="avatar-name">Speedster</div>
+                    <div class="avatar-price">100 Tokens</div>
+                </div>
+                <div class="avatar-option locked">
+                    <div class="avatar-preview">👑</div>
+                    <div class="avatar-name">Royal</div>
+                    <div class="avatar-price">Level 10</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Shop -->
+<div class="card">
+    <div class="card-header">
+        <div>
+            <h2 class="card-title">Rewards Shop</h2>
+            <p class="card-subtitle">Exchange tokens for partner discounts and rewards</p>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="shop-grid">
+            <div class="shop-item">
+                <div class="shop-item-image">📚</div>
+                <div class="shop-item-name">Test Prep Course Discount</div>
+                <div class="shop-item-description">
+                    20% off on premium test preparation courses
+                </div>
+                <div class="shop-item-price">500 Tokens</div>
+                <button class="btn btn-primary" style="width: 100%;">Purchase</button>
+            </div>
+            
+            <div class="shop-item">
+                <div class="shop-item-image">✍️</div>
+                <div class="shop-item-name">Essay Review Service</div>
+                <div class="shop-item-description">
+                    Professional essay review and feedback
+                </div>
+                <div class="shop-item-price">300 Tokens</div>
+                <button class="btn btn-primary" style="width: 100%;">Purchase</button>
+            </div>
+            
+            <div class="shop-item">
+                <div class="shop-item-image">🎯</div>
+                <div class="shop-item-name">University Guide Access</div>
+                <div class="shop-item-description">
+                    Exclusive detailed guides for top universities
+                </div>
+                <div class="shop-item-price">250 Tokens</div>
+                <button class="btn btn-primary" style="width: 100%;">Purchase</button>
+            </div>
+            
+            <div class="shop-item">
+                <div class="shop-item-image">💼</div>
+                <div class="shop-item-name">Mentor Session Bonus</div>
+                <div class="shop-item-description">
+                    Extra 30-minute mentor consultation session
+                </div>
+                <div class="shop-item-price">400 Tokens</div>
+                <button class="btn btn-primary" style="width: 100%;">Purchase</button>
+            </div>
+            
+            <div class="shop-item">
+                <div class="shop-item-image">🎁</div>
+                <div class="shop-item-name">Premium Profile Badge</div>
+                <div class="shop-item-description">
+                    Exclusive profile badge showing premium status
+                </div>
+                <div class="shop-item-price">150 Tokens</div>
+                <button class="btn btn-primary" style="width: 100%;">Purchase</button>
+            </div>
+            
+            <div class="shop-item">
+                <div class="shop-item-image">🏆</div>
+                <div class="shop-item-name">Achievement Showcase</div>
+                <div class="shop-item-description">
+                    Display achievements prominently on profile
+                </div>
+                <div class="shop-item-price">200 Tokens</div>
+                <button class="btn btn-primary" style="width: 100%;">Purchase</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Achievements -->
+<div class="card">
+    <div class="card-header">
+        <div>
+            <h2 class="card-title">Achievements</h2>
+            <p class="card-subtitle">Your unlocked achievements and progress</p>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="achievements-grid">
+            <div class="achievement-badge unlocked">
+                <div class="achievement-badge-icon">🏆</div>
+                <div class="achievement-badge-name">First Step</div>
+                <div class="achievement-badge-desc">Complete your first task</div>
+            </div>
+            
+            <div class="achievement-badge unlocked">
+                <div class="achievement-badge-icon">⭐</div>
+                <div class="achievement-badge-name">Rising Star</div>
+                <div class="achievement-badge-desc">Reach Level 3</div>
+            </div>
+            
+            <div class="achievement-badge unlocked">
+                <div class="achievement-badge-icon">📝</div>
+                <div class="achievement-badge-name">Essay Writer</div>
+                <div class="achievement-badge-desc">Complete 5 essays</div>
+            </div>
+            
+            <div class="achievement-badge unlocked">
+                <div class="achievement-badge-icon">🔥</div>
+                <div class="achievement-badge-name">Streak Master</div>
+                <div class="achievement-badge-desc">7-day activity streak</div>
+            </div>
+            
+            <div class="achievement-badge unlocked">
+                <div class="achievement-badge-icon">🎯</div>
+                <div class="achievement-badge-name">On Time</div>
+                <div class="achievement-badge-desc">Submit application on deadline</div>
+            </div>
+            
+            <div class="achievement-badge unlocked">
+                <div class="achievement-badge-icon">📚</div>
+                <div class="achievement-badge-name">Scholar</div>
+                <div class="achievement-badge-desc">Upload 10 documents</div>
+            </div>
+            
+            <div class="achievement-badge locked">
+                <div class="achievement-badge-icon">👑</div>
+                <div class="achievement-badge-name">Elite</div>
+                <div class="achievement-badge-desc">Reach Level 10</div>
+            </div>
+            
+            <div class="achievement-badge locked">
+                <div class="achievement-badge-icon">💎</div>
+                <div class="achievement-badge-name">Perfectionist</div>
+                <div class="achievement-badge-desc">Complete all tasks with 100% quality</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2024 APPLYRA. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="../static/js/main.js"></script>
+
+  </body>
+</html>
