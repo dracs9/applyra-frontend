@@ -1,13 +1,29 @@
 .stat-value.positive {
-          color: var(--success);
-        }
-        
-        .table td.positive {
-          color: var(--success);
-          font-weight: 600;
-        }
-        
-        .table td.negative {
-          color: var(--error);
-          font-weight: 600;
-        }
+  color: var(--success);
+  font-weight: 800;
+}
+
+.table td.positive {
+  color: var(--success);
+  font-weight: 700;
+  background: linear-gradient(135deg, rgba(209, 250, 229, 0.2) 0%, transparent 100%);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 8px;
+}
+
+.table td.negative {
+  color: var(--error);
+  font-weight: 700;
+  background: linear-gradient(135deg, rgba(254, 226, 226, 0.2) 0%, transparent 100%);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 8px;
+}
+
+.table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+  transform: translateX(4px);
+}

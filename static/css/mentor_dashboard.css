@@ -1,48 +1,90 @@
 .stat-change.negative {
-            color: var(--error);
-        }
-        
-        .risk-card {
-            background-color: var(--background-gray);
-            padding: var(--spacing-xl);
-            border-radius: var(--border-radius-lg);
-            text-align: center;
-            border: 2px solid var(--border-color);
-        }
-        
-        .risk-card.risk-high {
-            border-color: var(--error);
-            background-color: #fee2e2;
-        }
-        
-        .risk-card.risk-medium {
-            border-color: var(--warning);
-            background-color: #fef3c7;
-        }
-        
-        .risk-card.risk-low {
-            border-color: var(--success);
-            background-color: #d1fae5;
-        }
-        
-        .risk-icon {
-            font-size: 48px;
-            margin-bottom: var(--spacing-md);
-        }
-        
-        .risk-count {
-            font-size: var(--font-size-4xl);
-            font-weight: 700;
-            margin-bottom: var(--spacing-xs);
-        }
-        
-        .risk-label {
-            font-weight: 600;
-            font-size: var(--font-size-lg);
-            margin-bottom: var(--spacing-sm);
-        }
-        
-        .risk-description {
-            font-size: var(--font-size-sm);
-            color: var(--text-secondary);
-        }
+  color: var(--error);
+  font-weight: 600;
+}
+
+.risk-card {
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: var(--spacing-xl);
+  border-radius: 20px;
+  text-align: center;
+  border: 2px solid rgba(37, 99, 235, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: scaleIn 0.5s ease-out both;
+}
+
+.risk-card:nth-child(1) { animation-delay: 0.1s; }
+.risk-card:nth-child(2) { animation-delay: 0.2s; }
+.risk-card:nth-child(3) { animation-delay: 0.3s; }
+
+.risk-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+.risk-card.risk-high {
+  border-color: var(--error);
+  background: linear-gradient(135deg, rgba(254, 226, 226, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+  box-shadow: 0 8px 24px rgba(239, 68, 68, 0.2);
+}
+
+.risk-card.risk-high:hover {
+  box-shadow: 0 16px 48px rgba(239, 68, 68, 0.3);
+}
+
+.risk-card.risk-medium {
+  border-color: var(--warning);
+  background: linear-gradient(135deg, rgba(254, 243, 199, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.2);
+}
+
+.risk-card.risk-medium:hover {
+  box-shadow: 0 16px 48px rgba(245, 158, 11, 0.3);
+}
+
+.risk-card.risk-low {
+  border-color: var(--success);
+  background: linear-gradient(135deg, rgba(209, 250, 229, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
+}
+
+.risk-card.risk-low:hover {
+  box-shadow: 0 16px 48px rgba(16, 185, 129, 0.3);
+}
+
+.risk-icon {
+  font-size: 48px;
+  margin-bottom: var(--spacing-md);
+  transition: transform 0.4s ease;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.risk-card:hover .risk-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.risk-count {
+  font-size: var(--font-size-4xl);
+  font-weight: 800;
+  margin-bottom: var(--spacing-xs);
+  background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -2px;
+}
+
+.risk-label {
+  font-weight: 700;
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+.risk-description {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
