@@ -1,0 +1,13 @@
+.stat-value.positive {
+          color: var(--success);
+        }
+        
+        .table td.positive {
+          color: var(--success);
+          font-weight: 600;
+        }
+        
+        .table td.negative {
+          color: var(--error);
+          font-weight: 600;
+        }

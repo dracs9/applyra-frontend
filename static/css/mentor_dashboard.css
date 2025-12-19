@@ -1,0 +1,48 @@
+.stat-change.negative {
+            color: var(--error);
+        }
+        
+        .risk-card {
+            background-color: var(--background-gray);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            border: 2px solid var(--border-color);
+        }
+        
+        .risk-card.risk-high {
+            border-color: var(--error);
+            background-color: #fee2e2;
+        }
+        
+        .risk-card.risk-medium {
+            border-color: var(--warning);
+            background-color: #fef3c7;
+        }
+        
+        .risk-card.risk-low {
+            border-color: var(--success);
+            background-color: #d1fae5;
+        }
+        
+        .risk-icon {
+            font-size: 48px;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .risk-count {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .risk-label {
+            font-weight: 600;
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .risk-description {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }

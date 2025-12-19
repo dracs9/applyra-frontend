@@ -1,0 +1,225 @@
+.character-info {
+            text-align: center;
+        }
+        
+        .level-badge {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+        
+        .level-xp {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+        
+        .xp-bar {
+            max-width: 500px;
+            margin: var(--spacing-md) auto;
+        }
+        
+        .character-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+        
+        .stat-icon {
+            font-size: 32px;
+        }
+        
+        .stat-label-small {
+            font-size: var(--font-size-xs);
+            color: var(--text-secondary);
+        }
+        
+        .stat-value-small {
+            font-weight: 600;
+            font-size: var(--font-size-lg);
+        }
+        
+        .currency-card {
+            background-color: var(--background-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            border: 2px solid var(--border-color);
+        }
+        
+        .currency-icon {
+            font-size: 48px;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .currency-amount {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .currency-label {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+        
+        .quests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .quest-card {
+            background-color: var(--background-gray);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .quest-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .quest-icon {
+            font-size: 32px;
+        }
+        
+        .quest-title {
+            flex: 1;
+            font-weight: 600;
+            font-size: var(--font-size-lg);
+        }
+        
+        .quest-reward {
+            font-size: var(--font-size-xs);
+            color: var(--success);
+            font-weight: 500;
+        }
+        
+        .quest-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .quest-progress-text {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            margin-top: var(--spacing-xs);
+        }
+        
+        .artifact-status {
+            margin-top: var(--spacing-sm);
+            text-align: center;
+        }
+        
+        .customization-section {
+            margin-top: var(--spacing-md);
+        }
+        
+        .avatar-options {
+            display: flex;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+        
+        .avatar-option {
+            background-color: var(--background-gray);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            border: 2px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.2s;
+            min-width: 150px;
+        }
+        
+        .avatar-option:hover:not(.locked) {
+            border-color: var(--primary-blue);
+            transform: translateY(-4px);
+            box-shadow: var(--box-shadow-lg);
+        }
+        
+        .avatar-option.selected {
+            border-color: var(--primary-blue);
+            background-color: var(--secondary-blue);
+        }
+        
+        .avatar-option.locked {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .avatar-preview {
+            font-size: 64px;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .avatar-name {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .avatar-price {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+        
+        .shop-item-name {
+            font-weight: 600;
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .shop-item-description {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            min-height: 40px;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .achievement-badge {
+            background-color: var(--background-gray);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            border: 2px solid var(--border-color);
+            opacity: 0.6;
+        }
+        
+        .achievement-badge.unlocked {
+            opacity: 1;
+            border-color: var(--success);
+            background-color: #f0fdf4;
+        }
+        
+        .achievement-badge-icon {
+            font-size: 48px;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .achievement-badge-name {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .achievement-badge-desc {
+            font-size: var(--font-size-xs);
+            color: var(--text-secondary);
+        }

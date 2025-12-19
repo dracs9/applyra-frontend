@@ -1,0 +1,63 @@
+.progress-section {
+          padding: var(--spacing-md);
+          background-color: var(--background-gray);
+          border-radius: var(--border-radius);
+        }
+        
+        .achievement-list {
+          display: flex;
+          flex-direction: column;
+          gap: var(--spacing-md);
+        }
+        
+        .achievement-item {
+          display: flex;
+          gap: var(--spacing-md);
+          align-items: center;
+          padding: var(--spacing-md);
+          background-color: var(--background-gray);
+          border-radius: var(--border-radius);
+        }
+        
+        .achievement-icon {
+          font-size: 32px;
+          width: 50px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: var(--secondary-blue);
+          border-radius: 50%;
+          flex-shrink: 0;
+        }
+        
+        .achievement-content {
+          flex: 1;
+        }
+        
+        .action-card {
+          background-color: var(--background-gray);
+          padding: var(--spacing-xl);
+          border-radius: var(--border-radius);
+          text-align: center;
+          text-decoration: none;
+          color: var(--text-primary);
+          transition: transform 0.2s, box-shadow 0.2s;
+          border: 2px solid transparent;
+        }
+        
+        .action-card:hover {
+          transform: translateY(-4px);
+          box-shadow: var(--box-shadow-lg);
+          border-color: var(--primary-blue);
+        }
+        
+        .action-icon {
+          font-size: 48px;
+          margin-bottom: var(--spacing-md);
+        }
+        
+        .action-title {
+          font-weight: 600;
+          font-size: var(--font-size-base);
+        }

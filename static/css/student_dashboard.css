@@ -1,0 +1,83 @@
+.dashboard-header {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .dashboard-header h1 {
+            font-size: var(--font-size-3xl);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .dashboard-subtitle {
+            color: var(--text-secondary);
+            font-size: var(--font-size-base);
+        }
+        
+        .progress-item {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .recommendation-card {
+            background-color: var(--background-gray);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        .recommendation-icon {
+            font-size: 48px;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .recommendation-card h3 {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        .activity-item {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: flex-start;
+            padding: var(--spacing-md);
+            background-color: var(--background-gray);
+            border-radius: var(--border-radius);
+        }
+        
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        .activity-icon.success {
+            background-color: #d1fae5;
+            color: var(--success);
+        }
+        
+        .activity-icon.info {
+            background-color: var(--secondary-blue);
+            color: var(--info);
+        }
+        
+        .activity-icon.warning {
+            background-color: #fef3c7;
+            color: var(--warning);
+        }
+        
+        .activity-content {
+            flex: 1;
+        }
+        
+        .stat-change.warning {
+            color: var(--warning);
+        }

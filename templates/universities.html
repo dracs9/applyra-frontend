@@ -5,198 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Target Universities - APPLYRA</title>
     <link rel="stylesheet" href="../static/css/main.css" />
-    <style>
-        .universities-list {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-lg);
-        }
-        
-        .university-card {
-            background-color: var(--background-white);
-            border-radius: var(--border-radius-lg);
-            padding: var(--spacing-xl);
-            box-shadow: var(--box-shadow);
-            border-left: 4px solid var(--primary-blue);
-        }
-        
-        .university-header {
-            display: flex;
-            gap: var(--spacing-lg);
-            margin-bottom: var(--spacing-lg);
-        }
-        
-        .university-logo {
-            flex-shrink: 0;
-        }
-        
-        .logo-placeholder {
-            width: 80px;
-            height: 80px;
-            border-radius: var(--border-radius);
-            background-color: var(--secondary-blue);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-        }
-        
-        .university-info {
-            flex: 1;
-        }
-        
-        .university-name {
-            font-size: var(--font-size-xl);
-            font-weight: 600;
-            margin-bottom: var(--spacing-sm);
-        }
-        
-        .university-meta {
-            display: flex;
-            gap: var(--spacing-sm);
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        
-        .university-ranking {
-            font-size: var(--font-size-sm);
-            color: var(--text-secondary);
-        }
-        
-        .university-status {
-            text-align: right;
-        }
-        
-        .university-deadline {
-            background-color: var(--background-gray);
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius);
-            margin-bottom: var(--spacing-lg);
-        }
-        
-        .deadline-info {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-md);
-            flex-wrap: wrap;
-        }
-        
-        .deadline-label {
-            font-weight: 500;
-        }
-        
-        .deadline-date {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-        
-        .university-requirements {
-            margin-bottom: var(--spacing-lg);
-        }
-        
-        .requirement-section {
-            margin-bottom: var(--spacing-md);
-        }
-        
-        .requirement-section h4 {
-            font-size: var(--font-size-base);
-            font-weight: 600;
-            margin-bottom: var(--spacing-sm);
-            color: var(--text-primary);
-        }
-        
-        .requirement-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--spacing-sm);
-        }
-        
-        .requirement-item {
-            padding: var(--spacing-xs) var(--spacing-sm);
-            background-color: var(--background-gray);
-            border-radius: var(--border-radius);
-            font-size: var(--font-size-sm);
-        }
-        
-        .requirement-item.completed {
-            background-color: #d1fae5;
-            color: var(--success);
-        }
-        
-        .requirement-item.in-progress {
-            background-color: #fef3c7;
-            color: var(--warning);
-        }
-        
-        .requirement-item.pending {
-            background-color: var(--background-gray);
-            color: var(--text-secondary);
-        }
-        
-        .university-actions {
-            display: flex;
-            gap: var(--spacing-md);
-            padding-top: var(--spacing-lg);
-            border-top: 1px solid var(--border-color);
-        }
-        
-        .deadline-timeline {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-md);
-        }
-        
-        .deadline-item {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-lg);
-            padding: var(--spacing-md);
-            background-color: var(--background-gray);
-            border-radius: var(--border-radius);
-        }
-        
-        .deadline-item.urgent {
-            border-left: 4px solid var(--error);
-            background-color: #fee2e2;
-        }
-        
-        .deadline-date-box {
-            background-color: var(--background-white);
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius);
-            text-align: center;
-            min-width: 60px;
-        }
-        
-        .deadline-day {
-            font-size: var(--font-size-2xl);
-            font-weight: 700;
-            color: var(--primary-blue);
-        }
-        
-        .deadline-month {
-            font-size: var(--font-size-xs);
-            color: var(--text-secondary);
-            text-transform: uppercase;
-        }
-        
-        .deadline-details {
-            flex: 1;
-        }
-        
-        .deadline-university {
-            font-weight: 600;
-            margin-bottom: var(--spacing-xs);
-        }
-        
-        .deadline-type {
-            font-size: var(--font-size-sm);
-            color: var(--text-secondary);
-        }
-    </style>
+    <link rel="stylesheet" href="../static/css/universities.css" />
+    
   </head>
   <body>
-    <!-- Header -->
+    
     <header class="header">
       <div class="header-content">
         <div class="logo">
@@ -212,7 +25,6 @@
       </div>
     </header>
 
-    <!-- Sidebar -->
     <aside class="sidebar">
       <nav class="sidebar-nav">
         <a href="student_dashboard.html" class="nav-item active">
@@ -238,7 +50,6 @@
       </nav>
     </aside>
 
-    <!-- Main Content -->
     <main class="main-content">
 
 <div class="dashboard-header">
@@ -251,7 +62,6 @@
     </div>
 </div>
 
-<!-- Quick Stats -->
 <div class="grid grid-4">
     <div class="stat-card">
         <div class="stat-value">8</div>
@@ -271,7 +81,6 @@
     </div>
 </div>
 
-<!-- Filter and Search -->
 <div class="card">
     <div class="flex-between" style="margin-bottom: var(--spacing-lg);">
         <div style="flex: 1; max-width: 400px;">
@@ -292,9 +101,8 @@
     </div>
 </div>
 
-<!-- Universities List -->
 <div class="universities-list">
-    <!-- University Card 1 -->
+    
     <div class="university-card">
         <div class="university-header">
             <div class="university-logo">
@@ -352,8 +160,7 @@
             <a href="#" class="btn btn-secondary">Edit Application</a>
         </div>
     </div>
-    
-    <!-- University Card 2 -->
+
     <div class="university-card">
         <div class="university-header">
             <div class="university-logo">
@@ -410,8 +217,7 @@
             <a href="#" class="btn btn-secondary">Edit Application</a>
         </div>
     </div>
-    
-    <!-- University Card 3 -->
+
     <div class="university-card">
         <div class="university-header">
             <div class="university-logo">
@@ -468,8 +274,7 @@
             <a href="#" class="btn btn-secondary">View Requirements</a>
         </div>
     </div>
-    
-    <!-- University Card 4 -->
+
     <div class="university-card">
         <div class="university-header">
             <div class="university-logo">
@@ -516,7 +321,6 @@
     </div>
 </div>
 
-<!-- Deadline Calendar View -->
 <div class="card">
     <div class="card-header">
         <div>
@@ -587,7 +391,6 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
       <div class="footer-content">
         <p>&copy; 2024 APPLYRA. All rights reserved.</p>

@@ -1,0 +1,187 @@
+.universities-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+        
+        .university-card {
+            background-color: var(--background-white);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            box-shadow: var(--box-shadow);
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .university-header {
+            display: flex;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .university-logo {
+            flex-shrink: 0;
+        }
+        
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--border-radius);
+            background-color: var(--secondary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+        
+        .university-info {
+            flex: 1;
+        }
+        
+        .university-name {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .university-meta {
+            display: flex;
+            gap: var(--spacing-sm);
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .university-ranking {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+        
+        .university-status {
+            text-align: right;
+        }
+        
+        .university-deadline {
+            background-color: var(--background-gray);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .deadline-info {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+        
+        .deadline-label {
+            font-weight: 500;
+        }
+        
+        .deadline-date {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .university-requirements {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .requirement-section {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .requirement-section h4 {
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+        
+        .requirement-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+        
+        .requirement-item {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background-color: var(--background-gray);
+            border-radius: var(--border-radius);
+            font-size: var(--font-size-sm);
+        }
+        
+        .requirement-item.completed {
+            background-color: #d1fae5;
+            color: var(--success);
+        }
+        
+        .requirement-item.in-progress {
+            background-color: #fef3c7;
+            color: var(--warning);
+        }
+        
+        .requirement-item.pending {
+            background-color: var(--background-gray);
+            color: var(--text-secondary);
+        }
+        
+        .university-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .deadline-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        .deadline-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+            padding: var(--spacing-md);
+            background-color: var(--background-gray);
+            border-radius: var(--border-radius);
+        }
+        
+        .deadline-item.urgent {
+            border-left: 4px solid var(--error);
+            background-color: #fee2e2;
+        }
+        
+        .deadline-date-box {
+            background-color: var(--background-white);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            text-align: center;
+            min-width: 60px;
+        }
+        
+        .deadline-day {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+        
+        .deadline-month {
+            font-size: var(--font-size-xs);
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+        
+        .deadline-details {
+            flex: 1;
+        }
+        
+        .deadline-university {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .deadline-type {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }

@@ -5,94 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student Dashboard - APPLYRA</title>
     <link rel="stylesheet" href="../static/css/main.css" />
-    <style>
-        .dashboard-header {
-            margin-bottom: var(--spacing-xl);
-        }
-        
-        .dashboard-header h1 {
-            font-size: var(--font-size-3xl);
-            margin-bottom: var(--spacing-sm);
-        }
-        
-        .dashboard-subtitle {
-            color: var(--text-secondary);
-            font-size: var(--font-size-base);
-        }
-        
-        .progress-item {
-            margin-bottom: var(--spacing-md);
-        }
-        
-        .recommendation-card {
-            background-color: var(--background-gray);
-            padding: var(--spacing-lg);
-            border-radius: var(--border-radius);
-            text-align: center;
-        }
-        
-        .recommendation-icon {
-            font-size: 48px;
-            margin-bottom: var(--spacing-md);
-        }
-        
-        .recommendation-card h3 {
-            font-size: var(--font-size-lg);
-            margin-bottom: var(--spacing-sm);
-        }
-        
-        .activity-list {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-md);
-        }
-        
-        .activity-item {
-            display: flex;
-            gap: var(--spacing-md);
-            align-items: flex-start;
-            padding: var(--spacing-md);
-            background-color: var(--background-gray);
-            border-radius: var(--border-radius);
-        }
-        
-        .activity-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            flex-shrink: 0;
-        }
-        
-        .activity-icon.success {
-            background-color: #d1fae5;
-            color: var(--success);
-        }
-        
-        .activity-icon.info {
-            background-color: var(--secondary-blue);
-            color: var(--info);
-        }
-        
-        .activity-icon.warning {
-            background-color: #fef3c7;
-            color: var(--warning);
-        }
-        
-        .activity-content {
-            flex: 1;
-        }
-        
-        .stat-change.warning {
-            color: var(--warning);
-        }
-    </style>
+    <link rel="stylesheet" href="../static/css/student_dashboard.css" />
+    
   </head>
   <body>
-    <!-- Header -->
+    
     <header class="header">
       <div class="header-content">
         <div class="logo">
@@ -108,7 +25,6 @@
       </div>
     </header>
 
-    <!-- Sidebar -->
     <aside class="sidebar">
       <nav class="sidebar-nav">
         <a href="student_dashboard.html" class="nav-item active">
@@ -134,7 +50,6 @@
       </nav>
     </aside>
 
-    <!-- Main Content -->
     <main class="main-content">
 
 <div class="dashboard-header">
@@ -142,7 +57,6 @@
     <p class="dashboard-subtitle">Track your admission progress and stay on top of deadlines</p>
 </div>
 
-<!-- Quick Stats -->
 <div class="grid grid-4">
     <div class="stat-card">
         <div class="stat-value">75%</div>
@@ -171,9 +85,8 @@
     </div>
 </div>
 
-<!-- Main Content Grid -->
 <div class="grid grid-2">
-    <!-- Progress Overview -->
+    
     <div class="card">
         <div class="card-header">
             <div>
@@ -239,8 +152,7 @@
             </div>
         </div>
     </div>
-    
-    <!-- Upcoming Deadlines -->
+
     <div class="card">
         <div class="card-header">
             <div>
@@ -292,7 +204,6 @@
     </div>
 </div>
 
-<!-- AI Recommendations -->
 <div class="card">
     <div class="card-header">
         <div>
@@ -332,7 +243,6 @@
     </div>
 </div>
 
-<!-- Recent Activity -->
 <div class="card">
     <div class="card-header">
         <div>
@@ -375,7 +285,6 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
       <div class="footer-content">
         <p>&copy; 2024 APPLYRA. All rights reserved.</p>
