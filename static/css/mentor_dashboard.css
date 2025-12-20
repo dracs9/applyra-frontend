@@ -89,8 +89,44 @@
   line-height: 1.6;
 }
 
+/* Chart container styles */
+.card .card-body {
+  overflow: visible;
+}
 
+/* Add margin top for charts grid - spacing between stat cards and charts */
+/* Only applies to grid-2 that comes after grid-4 in mentor dashboard */
+.grid.grid-4 + .grid.grid-2 {
+  margin-top: var(--spacing-xl);
+}
+
+.chart-container {
+  padding: var(--spacing-md);
+  height: 300px !important;
+  max-height: 300px !important;
+  min-height: 300px;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+}
+
+.chart-container canvas {
+  max-width: 100% !important;
+  max-height: calc(100% - 2rem) !important;
+  width: 100% !important;
+  height: 100% !important;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Responsive chart adjustments */
 @media (max-width: 1024px) {
+  .chart-container {
+    height: 250px;
+    max-height: 250px;
+  }
+
   .risk-card {
     padding: var(--spacing-lg);
   }
@@ -111,5 +147,11 @@
 
   .risk-label {
     font-size: var(--font-size-base);
+  }
+
+  .chart-container {
+    height: 200px;
+    max-height: 200px;
+    padding: var(--spacing-sm);
   }
 }

@@ -6,6 +6,7 @@
     <title>Mentor Dashboard - APPLYRA</title>
     <link rel="stylesheet" href="../static/css/main.css" />
     <link rel="stylesheet" href="../static/css/mentor_dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     
   </head>
   <body>
@@ -96,8 +97,7 @@
         </div>
         <div class="card-body">
             <div class="chart-container">
-                
-                <div>Progress Distribution Chart (Chart.js placeholder)</div>
+                <canvas id="progressDistributionChart"></canvas>
             </div>
         </div>
     </div>
@@ -111,9 +111,22 @@
         </div>
         <div class="card-body">
             <div class="chart-container">
-                
-                <div>Application Status Chart (Chart.js placeholder)</div>
+                <canvas id="applicationStatusChart"></canvas>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <div>
+            <h2 class="card-title">Progress Over Time</h2>
+            <p class="card-subtitle">Average student progress by month</p>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="chart-container">
+            <canvas id="progressOverTimeChart"></canvas>
         </div>
     </div>
 </div>
@@ -294,6 +307,7 @@
     </footer>
 
     <script src="../static/js/main.js"></script>
+    <script src="../static/js/mentor_dashboard.js"></script>
 
   </body>
 </html>

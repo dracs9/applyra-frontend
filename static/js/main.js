@@ -136,8 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     initializeTooltips();
-    
-    initializeChartPlaceholders();
 });
 
 /**
@@ -150,23 +148,6 @@ function initializeTooltips() {
             // Tooltip implementation can be added here
             // For now, using title attribute as fallback
         });
-    });
-}
-
-/**
- * Initialize chart placeholders
- * These will be replaced with actual Chart.js implementations later
- */
-function initializeChartPlaceholders() {
-    const chartContainers = document.querySelectorAll('.chart-container');
-    chartContainers.forEach(container => {
-        if (!container.querySelector('.chart-placeholder')) {
-            const placeholder = document.createElement('div');
-            placeholder.className = 'chart-placeholder';
-            placeholder.textContent = 'Chart will be rendered here (Chart.js integration)';
-            placeholder.style.cssText = 'text-align: center; color: var(--text-secondary); padding: 2rem;';
-            container.appendChild(placeholder);
-        }
     });
 }
 
