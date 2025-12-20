@@ -96,7 +96,7 @@
 
 /* Add margin top for charts grid - spacing between stat cards and charts */
 /* Only applies to grid-2 that comes after grid-4 in mentor dashboard */
-.grid.grid-4 + .grid.grid-2 {
+.grid.grid-2 {
   margin-top: var(--spacing-xl);
 }
 
