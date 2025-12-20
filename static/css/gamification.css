@@ -472,3 +472,9 @@
     font-size: 0.7rem;
   }
 }
+
+
+.hero-image {
+  border-radius: 50px;
+  box-shadow: var(--box-shadow-lg);
+}
