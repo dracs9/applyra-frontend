@@ -262,3 +262,75 @@
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
 }
+
+
+@media (max-width: 1024px) {
+  .university-header {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .university-status {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .university-card {
+    padding: var(--spacing-md);
+  }
+
+  .university-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .university-name {
+    font-size: var(--font-size-lg);
+  }
+
+  .university-meta {
+    justify-content: center;
+  }
+
+  .university-deadline {
+    padding: var(--spacing-sm);
+  }
+
+  .deadline-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+
+  .requirement-list {
+    flex-direction: column;
+  }
+
+  .requirement-item {
+    width: 100%;
+  }
+
+  .university-actions {
+    flex-direction: column;
+  }
+
+  .university-actions .btn {
+    width: 100%;
+  }
+
+  .deadline-timeline {
+    gap: var(--spacing-sm);
+  }
+
+  .deadline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+
+  .deadline-date-box {
+    width: 100%;
+  }
+}

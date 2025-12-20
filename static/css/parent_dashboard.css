@@ -110,3 +110,36 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+
+@media (max-width: 1024px) {
+  .action-card {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .progress-section {
+    padding: var(--spacing-sm);
+  }
+
+  .achievement-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+
+  .achievement-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .action-card {
+    padding: var(--spacing-md);
+  }
+
+  .action-icon {
+    font-size: 48px;
+  }
+}

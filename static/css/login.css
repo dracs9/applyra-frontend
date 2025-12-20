@@ -173,3 +173,92 @@ body::after {
   margin: 0 var(--spacing-md);
   opacity: 0.5;
 }
+
+@media (max-width: 768px) {
+  body {
+    padding: var(--spacing-md);
+  }
+
+  .login-container {
+    max-width: 100%;
+    padding: var(--spacing-md);
+  }
+
+  .login-card {
+    padding: var(--spacing-xl);
+    border-radius: 20px;
+  }
+
+  .login-header h1 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+  }
+
+  .login-subtitle {
+    font-size: var(--font-size-xs);
+  }
+
+  .login-form {
+    margin-top: var(--spacing-lg);
+  }
+
+  .form-group {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .form-control {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 16px; 
+  }
+
+  .btn-lg {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-base);
+  }
+
+  .login-footer {
+    margin-top: var(--spacing-lg);
+    font-size: var(--font-size-xs);
+  }
+
+  .login-link {
+    display: block;
+    margin: var(--spacing-xs) 0;
+  }
+
+  .login-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: var(--spacing-sm);
+  }
+
+  .login-container {
+    padding: var(--spacing-sm);
+  }
+
+  .login-card {
+    padding: var(--spacing-lg);
+    border-radius: 16px;
+  }
+
+  .login-header h1 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .login-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .form-control {
+    padding: var(--spacing-sm);
+  }
+
+  .btn-lg {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+}

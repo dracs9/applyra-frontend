@@ -88,3 +88,28 @@
   color: var(--text-secondary);
   line-height: 1.6;
 }
+
+
+@media (max-width: 1024px) {
+  .risk-card {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .risk-card {
+    padding: var(--spacing-md);
+  }
+
+  .risk-icon {
+    font-size: 36px;
+  }
+
+  .risk-count {
+    font-size: var(--font-size-3xl);
+  }
+
+  .risk-label {
+    font-size: var(--font-size-base);
+  }
+}
